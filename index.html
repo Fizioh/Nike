@@ -30,7 +30,7 @@
 		</div>
 		<svg id="shad" xmlns="http://www.w3.org/2000/svg">
 			<filter id="drop-shadow">
-				<feGaussianBlurin="SourceAlpha" stdDeviation="12" />
+				<feGaussianBlur in="SourceAlpha" stdDeviation="12" />
 				<feOffset dx="2" dy="12" result="offsetblur" />
 				<feFlood floodcolor="rgba(0,0,0,0.4)" />
 				<feComposite in2="offsetblur" operator="in" />
@@ -63,8 +63,7 @@
 			<p>&copy; 2020 Yassine Benosmane <br>
 				Richmond Hill<br>
 				Bournemouth<br>
-				Blue Ribbon Sports
-				<br>
+				Blue Ribbon Sports<br>
 			</p>
 		</footer>
 
