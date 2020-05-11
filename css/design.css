@@ -1,0 +1,287 @@
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.8em;
+    font-family: 'Raleway', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+nav {
+    position: fixed;
+    z-index: 2000;
+    height: 90px;
+    width: 100%;
+    padding: 10px 20px;
+    text-shadow: 2px 6px 6px rgba(0, 0, 0, 0.4);
+    background: rgba(92, 147, 237, 0.1);
+}
+#mainLogo {
+    padding-top: 5px;
+    width: 100px;
+    float: left;
+}
+#mainLogo img {
+    max-width: 100px;
+}
+.right {
+    float: right;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+}
+nav li {
+    text-align: center;
+    display: inline;
+}
+a {
+    text-decoration: none;
+    padding: 10px 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.9em;
+    width: 80px;
+    border-bottom: 2px solid #fff;
+    transition: 0.5s all;
+    text-transform: uppercase;
+    font-family: 'Signika', sans-serif;
+}
+a:hover {
+    color: #fff;
+    background: rgba(25, 40, 44, 0.61);
+}
+
+canvas  {
+    width: 100vh;
+    height: 75vh;
+}
+
+#distort {
+    position: relative;
+    width: 100%;
+}
+#mask {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 20;
+}
+#mask svg {
+    max-width: 100%;
+}
+#shoe {
+    position: absolute;
+    width: 100%;
+    max-width: 1000px;
+    z-index: 21;
+    bottom: -40px;
+    right: 0px;
+    padding: 20px 40px 20px 20px;
+}
+.rsp {
+    
+    padding-top: 30px;
+    max-width: 100%;
+}
+#shoe img {
+    width: 100%;
+    max-width: 1000px;
+    object-fit: cover;
+}
+
+#intro {
+    position: absolute;
+    width: 70%;
+    padding: 50px;
+    z-index: 22;
+    top: 20%;
+    left: 0;
+    color: #fff;
+}
+#intro h1 {
+    font-size: 7vw;
+    line-height: 0.8em;
+    text-shadow: 2px 12px 12px rgba(0, 0, 0, 0.4);
+}
+#shad {
+    display: none;
+}
+.shadowed {
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0, 0, 0, 0.5));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransformMicrosoft.Dropshadow(OffX=2, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransformMicrosfot.Dropshadow(OffX=2, OffY=12, Color='#444')";
+}
+.button {
+    margin: 50px 0 0 0;
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    background: rgb(96, 117, 250);
+    background: linear-gradient(90deg,rgba(96, 117, 250, 1) 0%, rgba(92, 72, 210, 1) 100%);
+}
+.button:active {
+    background: green;
+}
+.grid {
+    width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0;
+    padding: 100px 0;
+}
+footer {
+    background: rgb(96, 117, 250);
+    background: linear-gradient(90deg,rgba(96, 117, 250, 1) 0%, rgba(92, 72, 210, 1) 100%);
+    min-height: 200px;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0 0 0;
+}
+@media only screen and (max-width: 600px) {
+    .md3 {
+        grid-column-end: span 12;
+    }
+}
+@media only screen and (min-width: 601px) {
+    .grid {
+        grid-gap: 50px;
+    }
+    .md3 {
+        grid-column-end: span 4;
+    }
+}
+
+/* above 1025px typically desktop*/
+
+@media only screen and (min-width: 1025px) {
+    .col3 {
+        grid-column-end: span 4;
+    }
+    .grid {
+        width: 70%;
+        grid-gap: 60px;
+        padding: 150px 0;
+    }
+}
+@-webkit-keyframes fadeInLeftBig {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeInLeftBig {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(-2000px, 0, 0);
+        transform: translate3d(-2000px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+.fadeInLeftBig {
+    -webkit-animation-duration: 0.9s;
+    animation-duration: 0.9s;
+    -webkit-animation-name: fadeInLeftBig;
+    animation-name: fadeInLeftBig;
+}
+@-webkit-keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(0.97, 0.97, 0.97);
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(0.97, 0.97, 0.97);
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+.bounceIn {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
+}

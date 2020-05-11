@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nike LunaCharge</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<script src="js/pixi.min.js"></script>
+ 	<link rel="stylesheet" href="css/reset.css">
+ 	<link rel="stylesheet" href="css/design.css">
+ 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<nav>
+	<div id="mainLogo">
+		<img src="img/logo.svg" alt="Votre logo de chaussure">
+		</div>
+		<div class="right">
+			<ul>
+				<li><a href="about.html">Détails</a></li>
+				<li><a href="shoes.html">Soldes</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+
+		<div id="distort">
+			<div id="mask"><img src="img/mask.svg" alt="Masque transparent"></div>
+			<div id="shoe" class="bounceIn"><img src="img/shoe.png" class="shadowed" alt="Chaussures de course d'une marque poplaire"></div>
+			<div id="intro" class="fadeInLeftBig"><h1>Nike<br>LunaCharge</h1></div>
+		</div>
+		<svg id="shad" xmlns="http://www.w3.org/2000/svg">
+			<filter id="drop-shadow">
+				<feGaussianBlurin="SourceAlpha" stdDeviation="12" />
+				<feOffset dx="2" dy="12" result="offsetblur" />
+				<feFlood floodcolor="rgba(0,0,0,0.4)" />
+				<feComposite in2="offsetblur" operator="in" />
+				<feMerge>
+					<feMergeNode />
+					<feMergeNode in="SourceGraphic" />
+				</feMerge>
+			</filter>
+		</svg>
+		<div class="grid">
+
+			<div class="col3 md3">
+				<h3>Déscription</h3>
+				<p><strong>Couleur:</strong> Black
+				<br><strong>Matériaux:</strong> Mesh / Synthétique
+				<br><strong>Semelle:</strong> Air / Rubber</p>
+				<div class="button">Ajouter au panier</div>
+			</div>
+			<div class="col3 md3">
+				<h3>Matériaux uniques</h3>
+				<p>Dominez la ville avec style. La LunarCharge associe les éléments des modèles classiques de Nike, notamment la Air Flow, la Air Current, la Air Max 90 et la Air Presto, aux semelles intermédiaire et extérieure de la LunarEpic Flyknit, pour une nouvelle silhouette conçue pour offrir un confort incomparable. Faites sensation dans cette version tout en noir de ce nouvel incontournable.</p>
+			</div>
+			<div class="col3 md3">
+				<img src="img/fabric.jpg" alt="Matériaux de fabrication uniques utilisés dans la conception de la chaussure" class="rsp">
+			</div>
+
+		</div>
+
+		<footer>
+			<p>&copy; 2020 Yassine Benosmane <br>
+				Richmond Hill<br>
+				Bournemouth<br>
+				Blue Ribbon Sports
+				<br>
+			</p>
+		</footer>
+
+
+<script type="text/javascript">
+	let ds = document.getElementById("distort");
+	const app = new PIXI.Application({
+		width: 1600,
+		height: 1067,
+		backgroundColor: 0xffffff,
+		resolution: window.devicePixelRatio || 1,
+	});
+	ds.appendChild(app.view);
+
+	app.stage.interactive = true;
+
+	const container = new PIXI.Container();
+	app.stage.addChild(container);
+
+	let containerSize = {
+		x: window.innerWidth,
+		y: window.innerHeight
+	};
+
+	const bg =  new PIXI.Sprite.from('img/bg.jpg');
+	container.addChild(bg);
+	bg.x = -10;
+	bg.y = -10;
+	bg.scale.set(1.1, 1.1);
+
+	const displacementSprite = PIXI.Sprite.from('img/disp.png');
+
+	displacementSprite.texture.baseTexte.wrapMode = PIXI.WRAP_MODES.REPEAT;
+	const displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+	displacementFilter.padding = 10;
+
+	displacementSprite.position = bg.position;
+	displacementSprite.scale.set(3,3);
+
+	app.stage.addChild(displacementSprite);
+
+	bg.filters = [displacementFilter];
+
+	displacementFilter.sclae.x = 120;
+	displacementFilter.scale.y = 120;
+
+	app.ticker.add(() =>{
+		displacementSprite.y += 1;
+		if (displacementSprite.y > displacementSprite.height) { 
+			displacementSprite.y = 0;
+		}
+	});
+
+</script>
+
+</body>
+
+</html>
+
